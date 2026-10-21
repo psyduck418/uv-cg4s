@@ -38,6 +38,7 @@
             border: 1px solid #334155; padding: 6px 12px; border-radius: 6px;
             cursor: pointer; z-index: 1001; font-size: 12px; display: none;
         }
+        #toggleBtn:hover { background-color: #0284c7; color: white; }
         #proxyFrame { width: 100%; height: 100%; border: none; background: white; }
     </style>
 </head>
@@ -64,8 +65,8 @@
                 url = 'https://' + url;
             }
             
-            // 透過公開且高效能的代理通道包裝，完美繞過iframe限制與學校防火牆
-            iframe.src = "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
+            // 透過你自己的 Cloudflare Pages 後端 functions 進行轉發
+            iframe.src = '/api/proxy?url=' + encodeURIComponent(url);
             toggleBar();
         }
 
